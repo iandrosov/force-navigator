@@ -1,67 +1,173 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Playground</title>
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+  </head>
 
-<body>
+  <div class="demo-only" style="height:800px">
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-welcome-mat" aria-labelledby="welcome-mat-13-label" aria-describedby="welcome-mat-13-content" aria-modal="true">
+      <div class="slds-modal__container">
+        <!--
+        <header class="slds-modal__header slds-modal__header_empty">
+          <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+        </header>
+  -->
+        <div class="slds-modal__content slds-welcome-mat__content slds-grid" id="welcome-mat-13-content">
+          <div class="slds-welcome-mat__info slds-size_1-of-2">
+            <div class="slds-welcome-mat__info-content">
+              <h2 id="welcome-mat-13-label" class="slds-welcome-mat__info-title">The Lightning Navigator is here!</h2>
+              <div class="slds-welcome-mat__info-description slds-text-longform">
+                <p>Welcome to Lightning Navigator, the tool that helps you organaize, explore and navigate your Salesforce Metadata. Build Data Dictioary directly from any org with secure OAuth connection. This toool was built by Developers & Admins to enable you to focus on better support your business instead of searching details and making documentation.</p>
+              </div>
+<!--
+              <div class="slds-welcome-mat__info-progress">
+                <p>
+                <strong>0/5 units completed</strong>
+                </p>
+              </div>
+              <div class="slds-progress-bar slds-progress-bar_circular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                <span class="slds-assistive-text">Progress: 0%</span>
+                </span>
+              </div>
+-->
+            </div>
+          </div>
+          <ul class="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium">
+            <li class="slds-welcome-mat__tile">
+              <a href="sfauth" class="slds-box slds-box_link slds-box_x-small slds-media">
+                <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+                  <div class="slds-welcome-mat__tile-icon-container">
+                    <span class="slds-icon_container slds-icon-utility-animal_and_nature">
+                      <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#animal_and_nature"></use>
+                      </svg>
+                    </span>
+                    <span class="slds-icon_container slds-icon_container_circle slds-icon-action-check" title="Completed">
+                      <svg class="slds-icon slds-welcome-mat__icon-check" aria-hidden="true">
+                        <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Completed</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="slds-media__body slds-border_left slds-p-around_small">
+                  <h3 class="slds-welcome-mat__tile-title">Login to Salesforce</h3>
+                  <p class="slds-welcome-mat__tile-description">Login to Developer ORG. This tool inspect only Metadata, using in Production is not recomended.</p>
+                </div>
+              </a>
+            </li>
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Java Salesforce OAuth Connector on Heroku</h1>
-    <p>This is a sample Java application can be deployed on Heroku or run local. It's a simple Java Spring Boot app - that is good foundation for understanding how to get web apps Authenticated with the Web Server OAuth Authentication Flow on the Salesfroce Lightning & Heroku platforms.</p>
+            <li class="slds-welcome-mat__tile">
+              <a href="sfauthsb" class="slds-box slds-box_link slds-box_x-small slds-media">
+                <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+                  <div class="slds-welcome-mat__tile-icon-container">
+                    <span class="slds-icon_container slds-icon-utility-call">
+                      <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#call"></use>
+                      </svg>
+                    </span>
+                    <span class="slds-icon_container slds-icon_container_circle slds-icon-action-check" title="Completed">
+                      <svg class="slds-icon slds-welcome-mat__icon-check" aria-hidden="true">
+                        <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Completed</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="slds-media__body slds-border_left slds-p-around_small">
+                  <h3 class="slds-welcome-mat__tile-title">Login to Salesforce</h3>
+                  <p class="slds-welcome-mat__tile-description">Login to Sandbox ORG.</p>
+                </div>
+              </a>
+            </li>
 
-
-    <a type="button" class="btn btn-lg btn-default" href="sfauth"><span class="glyphicon glyphicon-flash"></span> Login With Salesforce Production</a>
-    <a type="button" class="btn btn-lg btn-default" href="sfauthsb"><span class="glyphicon glyphicon-flash"></span> Login With Salesforce Sanbox</a>
-
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/iandrosov/sf-oauth-java-example"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
+<!--
+<li class="slds-welcome-mat__tile">
+<a href="javascript:void(0);" class="slds-box slds-box_link slds-box_x-small slds-media">
+<div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+<div class="slds-welcome-mat__tile-icon-container">
+<span class="slds-icon_container slds-icon-utility-upload">
+<svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+</svg>
+</span>
+<span class="slds-icon_container slds-icon_container_circle slds-icon-action-check" title="Completed">
+<svg class="slds-icon slds-welcome-mat__icon-check" aria-hidden="true">
+<use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+</svg>
+<span class="slds-assistive-text">Completed</span>
+</span>
 </div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-java" class="alert-link">Getting Started with Java on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app can be deployed to Heroku or run local. Deploying to Heroku can be done using Git or by using <a href="https://github.com/iandrosov/sf-oauth-java-example">Heroku Button</a> on the repository.</li>
+</div>
+<div class="slds-media__body slds-border_left slds-p-around_small">
+<h3 class="slds-welcome-mat__tile-title">Power Up the Utility Bar</h3>
+<p class="slds-welcome-mat__tile-description">Tap into case history or share notes with fellow agents—it all happens on the utility bar.</p>
+</div>
+</a>
+</li>
+<li class="slds-welcome-mat__tile">
+<a href="javascript:void(0);" class="slds-box slds-box_link slds-box_x-small slds-media">
+<div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+<div class="slds-welcome-mat__tile-icon-container">
+<span class="slds-icon_container slds-icon-utility-magicwand">
+<svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#magicwand"></use>
+</svg>
+</span>
+<span class="slds-icon_container slds-icon_container_circle slds-icon-action-check" title="Completed">
+<svg class="slds-icon slds-welcome-mat__icon-check" aria-hidden="true">
+<use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+</svg>
+<span class="slds-assistive-text">Completed</span>
+</span>
+</div>
+</div>
+<div class="slds-media__body slds-border_left slds-p-around_small">
+<h3 class="slds-welcome-mat__tile-title">Customize your view</h3>
+<p class="slds-welcome-mat__tile-description">Tailor your cases to your team&#x27;s workflow with custom list views.</p>
+</div>
+</a>
+</li>
+<li class="slds-welcome-mat__tile">
+<a href="javascript:void(0);" class="slds-box slds-box_link slds-box_x-small slds-media">
+<div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+<div class="slds-welcome-mat__tile-icon-container">
+<span class="slds-icon_container slds-icon-utility-knowledge_base">
+<svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+</svg>
+</span>
+<span class="slds-icon_container slds-icon_container_circle slds-icon-action-check" title="Completed">
+<svg class="slds-icon slds-welcome-mat__icon-check" aria-hidden="true">
+<use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+</svg>
+<span class="slds-assistive-text">Completed</span>
+</span>
+</div>
+</div>
+<div class="slds-media__body slds-border_left slds-p-around_small">
+<h3 class="slds-welcome-mat__tile-title">Share the Knowledge</h3>
+<p class="slds-welcome-mat__tile-description">Harness your team&#x27;s collective know-how with our powerful knowledge base.</p>
+</div>
+</a>
+</li>
+-->
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/java-getting-started/blob/master/pom.xml">pom.xml</a>, creating a slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/iandrosov/sf-oauth-java-example</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd sf-oauth-java-example</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-java#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_oauth_endpoints.htm#intro_understanding_oauth_endpoints">Understanding OAuth Endpoints</a></li>
-        <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm">How Are Apps Authenticated with the Web Server OAuth Authentication Flow?</a></li>
-        <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm">Salesfroce REST API Quick Start</a></li>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-java">Deploying Java Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
+</ul>
+</div>
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
 </div>
 
-</body>
 </html>
