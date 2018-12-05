@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'authresult')}">
+<body>
+	<div class="jumbotron text-center">
+	  <div class="container">
+	    <a href="/" class="lang-logo">
+	      <img src="/lang-logo.png">
+	    </a>
+	    <h1>Logged In to Salesforce via OAuth</h1>
+	    <p>This page confirms the successfull OAuth login for instance</p>
+	    <p th:text="${instance_url}"/>
+
+	    <a type="button" class="btn btn-lg btn-default" href="queryresult"><span class="glyphicon glyphicon-flash"></span> Query Contacts Example</a>
+    
+	  </div>
+	</div>
+
+  <div class="container">
+  	<div class="alert alert-info text-center" role="alert">
+  		<table>
+	  		<tr>
+	  			<td>INSTANCE URL:</td>
+	    		<td th:text="${instance_url}"/>
+	    	</tr>
+	    	<tr>
+	    		<td>ACCESS TOKEN:</td>
+	    		<td th:text="${access_token}"/>	
+	    	</tr>
+	    	<tr>
+	    		<td>REFRESH TOKEN:</td>
+	    		<td th:text="${refresh_token}"/>
+	    	</tr>
+    	</table>
+  	</div>
+  </div>
+</body>
+</html>

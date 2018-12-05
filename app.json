@@ -1,0 +1,5 @@
+{
+  "name": "Force Navigator on Heroku",
+  "description": "A Salesforce ForceNavigator Java app, which porvides Salesforce metadata documentation and can be deployed to Heroku.",
+  "addons": [ "heroku-postgresql" ]
+}

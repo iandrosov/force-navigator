@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'authresult')}">
+<body>
+	<div class="jumbotron text-center">
+	  <div class="container">
+	    <a href="/" class="lang-logo">
+	      <img src="/lang-logo.png">
+	    </a>
+	    <h1>Salesforce Data Query Result</h1>
+	    <p>This page display successfull query data result in JSON format</p>
+	    <p th:text="${instance_url}"/>
+	  </div>
+	</div>
+
+  <div class="container">
+  	<div class="alert alert-info text-center" role="alert">
+  		<p th:text="${result}"/>
+  	</div>
+  </div>
+</body>
+</html>
