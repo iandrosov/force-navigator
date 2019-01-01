@@ -288,6 +288,32 @@ public class Main {
     return "queryresult";
   }
 
+  // TEST tooling API REST
+  @RequestMapping("/fieldresult")
+  String restfield(Map<String, Object> model) throws IOException, URISyntaxException {
+
+    CloseableHttpClient client = HttpClients.createDefault();
+    // Create SOQL QUERY example select 10 Contacts
+    URIBuilder builder = new URIBuilder(this.instance_url);
+    builder.setPath(SF_REST_QUERY).setParameter("q", "SELECT QualifiedApiName, (Select DataType From Particles) FROM FieldDefinition WHERE EntityDefinition.QualifiedApiName ='Account'");
+
+    HttpGet httpGet = new HttpGet(builder.build());
+    httpGet.setHeader("Authorization", "Bearer " + this.access_token);
+    // Run SOQL query
+    CloseableHttpResponse queryResponse = client.execute(httpGet);
+    // Process query results
+    final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+    final JsonNode queryResults = mapper.readValue(queryResponse.getEntity().getContent(), JsonNode.class);
+    String str = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(queryResults);
+    System.out.println(str);    
+
+    client.close();
+    // Output query result JSON
+    model.put("result", str);
+
+    return "fieldresult";
+  }  
+
   // Test code method check environment values
   @RequestMapping("/hello")
   String hello(Map<String, Object> model) {
